@@ -69,6 +69,9 @@
 			svg {
 				fill: #fff;
 			}
+			@media (max-width: 700px) {
+				right: 10px;
+			}
 		}
 	}
 }

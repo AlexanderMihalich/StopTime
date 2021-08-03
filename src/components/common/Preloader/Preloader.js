@@ -1,6 +1,6 @@
 import React from 'react'
 import preloader from '../../../assets/img/loader.svg'
-import './Preloader.css'
+import './Preloader.scss'
 
 let Preloader = () => {
 	return (

@@ -28,20 +28,14 @@ section {
 html,
 body {
 	height: 100%;
-	min-width: $minWidth;
+	min-width: 320px;
 }
 body {
 	line-height: 1;
-	font-family: $fontFamily;
 	//text-rendering: optimizeLegibility;
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
-}
-input,
-button,
-textarea {
-	font-family: $fontFamily;
 }
 input::-ms-clear {
 	display: none;
@@ -80,5 +74,4 @@ textarea {
 	-moz-appearance: none;
 	appearance: none;
 	resize: none;
-
 }

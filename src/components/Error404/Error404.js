@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 const Error404 = () => {
 	return (
-		<div className={style.error}>
+		<div className={cn(style.error, "block")}>
 			<div className={cn(style.content, "_container")}>
 				<h1 className={style.error__title}>404</h1>
 				<br /><br />

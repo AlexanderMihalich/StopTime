@@ -1,9 +1,9 @@
 import React from 'react';
-import './assets/css/fonts.css';
-import './assets/css/null.css';
+import './assets/css/fonts.scss';
+import './assets/css/null.scss';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Background from './components/Background/Background';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { initializeApp } from './state/app-reducer';
@@ -25,7 +25,7 @@ class App extends React.Component {
 			return <PreloaderApp />
 		}
 		return (
-			<BrowserRouter>
+			<HashRouter>
 				<div className="wrapper">
 					<HeaderContainer />
 					<main className='page'>
@@ -49,7 +49,7 @@ class App extends React.Component {
 						</div>
 					</main>
 				</div>
-			</BrowserRouter >
+			</HashRouter >
 		);
 	}
 }
