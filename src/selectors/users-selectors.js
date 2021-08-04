@@ -22,6 +22,6 @@ export const getFollowingInProgress = (state) => {
 	return state.usersPage.followingInPropgress
 }
 export const getUserBackground = (state) => {
-	return state.userPage.userBackground
+	return state.usersPage.userBackground
 }
 

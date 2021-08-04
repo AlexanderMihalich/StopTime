@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import style from '../Description.module.scss'
 
-class ProfileStatus extends Component {
+class ProfileStatusForm extends Component {
 
 	state = {
 		editMode: false,
@@ -24,11 +24,9 @@ class ProfileStatus extends Component {
 	}
 	render() {
 		return (
-			(!this.state.editMode)
-				? <span onDoubleClick={this.activateEditMode} className={style.info__status}>......{this.props.status || "No status"}</span>
-				: <input autoFocus onBlur={this.deactivateEditMode} onChange={this.onStatusChange} type="text" className={style.info__statusInput} value={this.state.status} />
+			<input onBlur={this.deactivateEditMode} onChange={this.onStatusChange} type="text" className={style.info__statusForm} value={this.state.status} />
 		)
 	}
 }
 
-export default ProfileStatus
+export default ProfileStatusForm

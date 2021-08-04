@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 import style from './Description.module.scss'
 import Preloader from '../../common/Preloader/Preloader';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
@@ -6,45 +6,43 @@ import ProfileInfoForm from './ProfileInfoForm/ProfileInfoForm';
 import { ImageUnderstudy } from '../../../utils/ImageUnderstudy/ImageUnderstudy';
 import cn from 'classnames';
 
-const Description = ({ profile, isOwner, status, updateUserStatus, savePhoto, saveProfile }) => {
-
-	let [editMode, setEditMode] = useState(false);
-
-	if (!profile) {
-		return (<Preloader />)
+class Description extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { editMode: false }
 	}
-
-
-	const onMainPhotoSelected = (e) => {
+	onMainPhotoSelected = (e) => {
 		if (e.target.files.length) {
-			savePhoto(e.target.files[0])
+			this.props.savePhoto(e.target.files[0])
 		}
 	}
-	const onSubmit = (formData) => {
-		saveProfile(formData).then(
-			() => {
-				setEditMode(false)
-			}
+	onSubmit = (formData) => {
+		this.props.saveProfile(formData).then(
+			this.setState({ editMode: false })
 		)
 	}
-
-	return (
-		<div className={style.description} >
-			<div className={style.description__avatar}>
-				{ImageUnderstudy(profile.photos.large)}
-				{isOwner &&
-					<div className={style.description__files}>
-						<input type={"file"} accept=".jpg, .png" id="formImage" className={style.description__filesInput} onChange={onMainPhotoSelected} />
-						<span className={cn(style.description__btn, style.description__btn_1)}>Choose File</span>
-					</div>
+	render() {
+		if (!this.props.profile) {
+			return (<Preloader />)
+		}
+		return (
+			<div className={style.description} >
+				<div className={style.description__avatar}>
+					{ImageUnderstudy(this.props.profile.photos.large)}
+					{this.props.isOwner &&
+						<div className={style.description__files}>
+							<input type={"file"} accept=".jpg, .png" id="formImage" className={style.description__filesInput} onChange={this.onMainPhotoSelected} />
+							<span className={cn(style.description__btn, style.description__btn_1)}>Choose File</span>
+						</div>
+					}
+				</div>
+				{this.state.editMode
+					? < ProfileInfoForm onSubmit={this.onSubmit} profile={this.props.profile} initialValues={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus} />
+					: < ProfileInfo goToEditMode={() => this.setState({ editMode: true })} profile={this.props.profile} isOwner={this.props.isOwner} status={this.props.status} updateStatus={this.props.updateStatus} />
 				}
 			</div>
-			{editMode
-				? < ProfileInfoForm onSubmit={onSubmit} profile={profile} initialValues={profile} status={status} updateUserStatus={updateUserStatus} />
-				: < ProfileInfo goToEditMode={() => { setEditMode(true) }} profile={profile} isOwner={isOwner} status={status} updateUserStatus={updateUserStatus} />
-			}
-		</div>
-	)
+		)
+	}
 }
 
 export default Description

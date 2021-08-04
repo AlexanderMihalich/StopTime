@@ -1,5 +1,6 @@
 import { stopSubmit } from 'redux-form';
 import { profileAPI } from '../api/api';
+
 let ADD_POST = 'profile-reducer/ADD-POST'
 let SET_USER_PROFILE = 'profile-reducer/SET_USER_PROFILE'
 let SET_USER_STATUS = 'profile-reducer/SET_USER_STATUS'

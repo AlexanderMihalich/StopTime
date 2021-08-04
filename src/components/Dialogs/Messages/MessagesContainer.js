@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { getNewMessageText } from '../../../selectors/dialogs-selectors';
 import Messages from './Messages';
 
 let mapStateToProps = (state) => {
 	return {
-		newMessageText: state.messagesPage.newMessageText,
+		newMessageText: getNewMessageText(state),
 	}
 }
 export default compose(

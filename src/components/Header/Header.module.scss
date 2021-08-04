@@ -56,7 +56,7 @@
 			width: 38px;
 		}
 	}
-	&__user {
+	&__login {
 		color: #fff;
 		font-size: 20px;
 		@media (max-width: 500px) {
@@ -71,9 +71,9 @@
 		}
 	}
 	&__rowUser {
+		display: flex;
+		align-items: center;
 		@media (max-width: 500px) {
-			display: flex;
-			align-items: center;
 			flex-direction: column;
 		}
 	}

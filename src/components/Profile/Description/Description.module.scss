@@ -113,12 +113,24 @@
 			margin: 10px 0px 10px 0px;
 		}
 	}
-	&__inputStatus {
+	&__statusInput {
 		padding: 5px 15px;
 		border-radius: 5px;
 		border: 1px solid rgba(0, 0, 0, 0.2);
 		margin: 2px 0px 2px 0px;
 		width: 300px;
+	}
+	&__statusForm {
+		border-radius: 5px;
+		font-size: 14px;
+		width: 450px;
+		padding: 6px 15px;
+		margin: 10px 0px -10px 0px;
+		border: 1px solid rgba(0, 0, 0, 0.171);
+		background-color: #fff;
+		@media (max-width: 700px) {
+			max-width: 310px;
+		}
 	}
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Description from './Description/Description';
-import AddPostContainer from './AddPost/AddPostContainer';
+import AddPost from './AddPost/AddPost';
 
 class Profile extends React.Component {
 	isOwner = !this.props.match.params.userId
@@ -23,11 +23,10 @@ class Profile extends React.Component {
 		}
 	}
 	render() {
-
 		return (
 			<div className="block">
 				<Description profile={this.props.profile} isOwner={this.isOwner} savePhoto={this.props.savePhoto} saveProfile={this.props.saveProfile} status={this.props.status} updateStatus={this.props.updateUserStatus} />
-				<AddPostContainer profile={this.props.profile} />
+				<AddPost profile={this.props.profile} newPostText={this.props.newPostText} posts={this.props.posts} addPost={this.props.addPost} />
 			</div>
 		)
 	}

@@ -1,14 +1,15 @@
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { withAuthRedirect } from '../../hoc/withAuthRedirect'
+import { getDialogs, getMessage, getNewMessage } from '../../selectors/dialogs-selectors'
 import { sendMessage } from '../../state/dialogs-reducer'
 import Dialogs from './Dialogs'
 
 let mapStateToProps = (state) => {
 	return {
-		dialogs: state.messagesPage.dialogs,
-		messages: state.messagesPage.messages,
-		newMessage: state.messagesPage.newMessage,
+		dialogs: getDialogs(state),
+		messages: getMessage(state),
+		newMessage: getNewMessage(state),
 	}
 }
 

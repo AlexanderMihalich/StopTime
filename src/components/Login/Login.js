@@ -4,6 +4,7 @@ import style from './Login.module.scss'
 import LoginForm from './LoginForm/LoginForm'
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { getCaptchaUrlState, getIsAuth } from '../../selectors/auth-selectors';
 
 const Login = ({ login, isAuth, captchaUrl }) => {
 
@@ -21,7 +22,7 @@ const Login = ({ login, isAuth, captchaUrl }) => {
 	)
 }
 const mapStateToProps = (state) => ({
-	isAuth: state.auth.isAuth,
-	captchaUrl: state.auth.captchaUrl
+	isAuth: getIsAuth(state),
+	captchaUrl: getCaptchaUrlState(state)
 })
 export default connect(mapStateToProps, { login })(Login)

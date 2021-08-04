@@ -3,14 +3,14 @@ import style from '../Description.module.scss'
 import ProfileStatus from '../ProfileStatus/ProfileStatus';
 import cn from 'classnames';
 
-const ProfileInfo = ({ profile, isOwner, status, updateUserStatus, goToEditMode }) => {
+const ProfileInfo = ({ profile, isOwner, status, updateStatus, goToEditMode }) => {
 
 	return (
 		<div className={cn(style.description__info, style.info)}>
 			<h2 className={`${style.info__name} title`} >{profile.fullName}</h2>
 			<ul className={style.info__list}>
 				<li>
-					<ProfileStatus status={status} updateUserStatus={updateUserStatus} />
+					<ProfileStatus status={status} updateStatus={updateStatus} />
 				</li>
 				<li className={style.info__item}><b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}</li>
 				{profile.lookingForAJob &&
